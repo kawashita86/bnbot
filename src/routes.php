@@ -26,9 +26,8 @@ $app->get('/webhook', function($request, $response, $args){
 
   $this->logger->info("Called webhook route");
 // webhook.php
- // $update = $this->telegram->commandsHandler(true);
-
-  $updates = $this->telegram->getWebhookUpdates();
-  print_r($updates);
+  $this->telegram->addCommand(new BlastingNews\Bot\Commands\StartCommand());
+  $update = $this->telegram->commandsHandler(true);
+  $this->logger->info("Data ". print_r($update,1));
   return;
 });
