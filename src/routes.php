@@ -14,12 +14,21 @@ $app->get('/', function ($request, $response, $args) {
     return $this->renderer->render($response, 'index.phtml', $args);
 });
 
+$app->get('/sethook', function($request, $response, $args){
+  $this->logger->info("Called sethook route");
+  $response = $this->telegram->setWebhook(['url' => 'https://rocky-bastion-1679.herokuapp.com/webhook']);
+  print_r($response);
+  return;
+});
+
 
 $app->get('/webhook', function($request, $response, $args){
 
-  $this->logger->info("Called index route");
+  $this->logger->info("Called webhook route");
 // webhook.php
-  $update = $this->telegram->commandsHandler(true);
-  print_r($update);
+ // $update = $this->telegram->commandsHandler(true);
+
+  $updates = $this->telegram->getWebhookUpdates();
+  print_r($updates);
   return;
 });
