@@ -18,8 +18,8 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-$container['telegram_bot'] = function($c) {
-    $settings = $c->get('settings')['telegram_bot'];
+$container['telegram'] = function($c) {
+    $settings = $c->get('settings')['telegram'];
     $telegram = new Telegram\Bot\Api($settings['api_token']);
     return $telegram;
 };
