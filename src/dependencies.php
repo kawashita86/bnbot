@@ -28,5 +28,6 @@ $container['telegram'] = function($c) {
 };
 
 $container['redis'] = function($c) {
-  return new Predis\Client(getenv('REDIS_URL'));
+  $redis = new Predis\Client(getenv('REDIS_URL'));
+  return $redis;
 };

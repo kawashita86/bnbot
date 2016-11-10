@@ -35,6 +35,9 @@ class SetBookmarkCommand extends Command
    */
   public function handle($arguments)
   {
+    $this->replyWithMessage(['text' => 'Adding your bookmark'.print_r($arguments,1)]);
+
+    $this->replyWithChatAction(['action' => Actions::TYPING]);
     $author_id  = $this->getArguments()['from']['id'];
     if($this->addBookmark($author_id, array('title' => 'test', 'options' => false, 'author_id' => 1)))
       $this->replyWithMessage(['text' => 'Bookmark added correctly']);
@@ -49,6 +52,6 @@ class SetBookmarkCommand extends Command
       'author_id' => $author_id,
     );
 
-    $this->redis->set('c1:poll', json_encode($bookmark));
+    return $this->redis->set('c1:poll', json_encode($bookmark));
   }
 }
