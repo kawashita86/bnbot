@@ -26,3 +26,7 @@ $container['telegram'] = function($c) {
     $telegram = new Telegram\Bot\Api($api_token);
     return $telegram;
 };
+
+$container['redis'] = function($c) {
+  return new Predis\Client(getenv('REDIS_URL'));
+};

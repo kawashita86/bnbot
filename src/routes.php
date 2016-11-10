@@ -27,7 +27,7 @@ $app->post('/webhook', function($request, $response, $args){
 // webhook.php
   $this->telegram->addCommand(new BlastingNews\Bot\Commands\StartCommand());
   $this->telegram->addCommand(new BlastingNews\Bot\Commands\HelpCommand());
-
+  $this->telegram->addCommand(new BlastingNews\Bot\Commands\SetBookmarkCommand($this->redis));
   $update = $this->telegram->commandsHandler(true);
   $this->logger->info("Data ". print_r($update,1));
   return;
