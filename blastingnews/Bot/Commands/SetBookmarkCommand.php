@@ -35,11 +35,12 @@ class SetBookmarkCommand extends Command
    */
   public function handle($arguments)
   {
-    $this->replyWithMessage(['text' => 'Adding your bookmark'.print_r($arguments,1)]);
+    $this->replyWithMessage(['text' => 'Adding your bookmark']);
 
     $this->replyWithChatAction(['action' => Actions::TYPING]);
-    $author_id  = $this->getArguments()['from']['id'];
-    if($this->addBookmark($author_id, array('title' => 'test', 'options' => false, 'author_id' => 1)))
+    $args  = $this->getArguments();
+    $author_id = 1;
+    if($this->addBookmark($author_id, array('title' => $args[0], 'options' => $args[1], 'author_id' => 1)))
       $this->replyWithMessage(['text' => 'Bookmark added correctly']);
     else
       $this->replyWithMessage(['text' => 'Error while adding bookmark']);
