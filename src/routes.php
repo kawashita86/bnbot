@@ -6,7 +6,7 @@ $app->get('/', function ($request, $response, $args) {
   $this->logger->info("Called index route");
 
     $this->telegram->addCommand(new BlastingNews\Bot\Commands\StartCommand());
-    $result = $this->telegram->setWebhook(['url' => 'https://rocky-bastion-1679.herokuapp.com/webhook']);
+    $result = $this->telegram->setWebhook(['url' => 'https://rocky-bastion-1679.herokuapp.com/44605275:AAG_nevQUgen0EiE2KQhiBfRBIxLGVPSebE/webhook']);
     $this->logger->info(print_r($result, 1));
 
     // Render index view
