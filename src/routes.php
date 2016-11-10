@@ -22,7 +22,7 @@ $app->get('/sethook', function($request, $response, $args){
 });
 
 
-$app->get('/webhook', function($request, $response, $args){
+$app->post('/webhook', function($request, $response, $args){
 
   $this->logger->info("Called webhook route");
 // webhook.php
