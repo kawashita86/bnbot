@@ -20,6 +20,9 @@ $container['logger'] = function ($c) {
 
 $container['telegram'] = function($c) {
     $settings = $c->get('settings')['telegram'];
-    $telegram = new Telegram\Bot\Api($settings['api_token']);
+    $api_token = getenv('TELEGRAM_API_KEY');
+    if($api_token == false || empty($api_token))
+      throw \Exception('Invalid api token');
+    $telegram = new Telegram\Bot\Api($api_token);
     return $telegram;
 };

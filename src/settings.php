@@ -17,7 +17,6 @@ return [
         'telegram' => [
             'name' => 'bnbot',
             'hook_route' => 'https://rocky-bastion-1679.herokuapp.com/webhook.php',
-            'api_token' => '244605275:AAG_nevQUgen0EiE2KQhiBfRBIxLGVPSebE',
             'use_hooks' => true
         ]
     ],
