@@ -6,7 +6,7 @@ $app->get('/', function ($request, $response, $args) {
   $this->logger->info("Called index route");
 
     $this->telegram->addCommand(new BlastingNews\Bot\Commands\StartCommand());
-    $result = $this->telegram->getUpdates();
+    $result = $this->telegram->getMe();
     $this->logger->info(print_r($result, 1));
     print_r($result);
 
