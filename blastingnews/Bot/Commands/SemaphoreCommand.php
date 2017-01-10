@@ -49,8 +49,7 @@ class SemaphoreCommand extends Command
       $this->replyWithMessage(['text' => 'Invalid operation type']);
     else {
       if (!$this->setSemaphore($operation)) {
-
-        $this->replyWithMessage(['text' =>  $operation == 'set' ? "\xF0\x9F\x98\xA1" : "\xF0\x9F\x99\x8F"]);
+        $this->replyWithMessage(['text' =>  $operation == 'set' ? "$operation \xF0\x9F\x98\xA1" : "$operation \xF0\x9F\x99\x8F"]);
       }
       else
         $this->replyWithMessage(['text' => 'Error setting  adding bookmark already set '.$this->semaphore['chat_id']]);
