@@ -45,7 +45,7 @@ class SemaphoreCommand extends Command
 
     $this->replyWithChatAction(['action' => Actions::TYPING]);
     $args  = $this->getArguments();
-    if(empty($operation = $args[0]) && !in_array($args[0], $this->operations))
+    if(empty($operation = $args[1]) && !in_array($args[1], $this->operations))
       $this->replyWithMessage(['text' => 'Invalid operation type']);
     else {
       if (!$this->setSemaphore($operation)) {
